@@ -15,4 +15,4 @@ def dot_to_img(ext: str, dotfile: str, ofile: str) -> bool:
 def make_image(filestr: str, ext: str, filename: str):
     """Make the image"""
     generate_dot_file(filestr, filename)
-    dot_to_image(ext, filestr, filestr)
+    dot_to_img(ext, filename, filename)
