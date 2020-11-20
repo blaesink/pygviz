@@ -1,22 +1,28 @@
 class Tree:
     """A Tree is for hierarchy
-    :param: top -- top level node for this Tree
+    :param: root -- root level node for this Tree
     :param: layers -- lists of strings that are layers each layer is a child to
-    the layer above (top is the highest layer)
+    the layer above (root is the highest layer)
     """
-    def __init__(self, top: str):
-        self.top = top
+    def __init__(self, root: str):
+        self.root = root
         self.layers = []
 
     def add_layer(self, nodes: list):
-        """Adds a layer to the tree"""
-        assert isinstance(nodes, list)
-        self.layers.append(nodes)
+        """Adds a layer to the tree
+        :param: nodes: a list of lists that has N elements equal to the
+        number of elements on the layer above.
+        """
+        if len(self.layers) == 0:
+            self.layers.append(nodes)
+        else:
+            assert len(nodes) == len(self.layers[-1])
+            self.layers.append(nodes)
 
     def dict(self):
         """Creates a dict representation of the Tree"""
         d = {}
-        d["top"] = self.top
+        d["root"] = self.root
         for l in self.layers:
             d[f"layer_{self.layers.index(l)}"] = l
         return d
@@ -30,3 +36,11 @@ class Tree:
             s = "digraph{\n"
         else:
             s = "graph{\n"
+
+        s += "}"
+        return s
+
+    def show(self):
+        """This will merge into generate(), just a way to see that things
+        are looking as expected"""
+        current_node = self.root
