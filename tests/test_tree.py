@@ -61,5 +61,4 @@ def test_show():
     mock_tree = Tree("George")
     mock_tree.add_layer(["Mathilda", "Ryan"])
 
-    print()
     mock_tree.show()

@@ -25,11 +25,11 @@ def test_dot_to_img():
     assert dot_to_img(ext="png", dotfile="test", ofile="test") == True
     cleanUp()
 
-def test_dot_to_img_fails():
-    file_string = "digraph{\nTom -> Mathilda\nTom -> Ryan\nMathilda -> Gregory\n}"
-    generate_dot_file(filestr=file_string, filename="test")
-
-    # Probably not the best way to test but it works.
-    with pytest.raises(IOError):
-        dot_to_img(ext="png", dotfile="test2", ofile="test")
-    cleanUp()
+# def test_dot_to_img_fails():
+#     file_string = "digraph{\nTom -> Mathilda\nTom -> Ryan\nMathilda -> Gregory\n}"
+#     generate_dot_file(filestr=file_string, filename="test")
+#
+#     # Probably not the best way to test but it works.
+#     with pytest.raises(IOError):
+#         dot_to_img(ext="png", dotfile="test2", ofile="test")
+#     cleanUp()
