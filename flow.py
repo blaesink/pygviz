@@ -1,4 +1,5 @@
-from typing import List
+from typing import List, Mapping
+from pygviz.utils import make_image
 
 
 def make_relationships(data: dict) -> List[str]:
@@ -14,3 +15,8 @@ def graph(data: List[str]):
         s += l + "\n"
     s += "}"
     return s
+
+def make_flow(data: Mapping[str, str], filename: str, ext:str="ext"):
+    rels = make_relationships(data)
+    final_graph = graph(rels)
+    make_image(final_graph, ext, filename)

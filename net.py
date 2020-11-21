@@ -1,4 +1,6 @@
 from typing import List, Mapping
+from pygviz.utils import make_image
+
 
 def make_links(data: Mapping[str, str]) -> List[str]:
     res = []
@@ -11,5 +13,10 @@ def make_graph(data: List[str]) -> str:
     s = "graph{\n"
     for l in data:
         s += f"{l}\n"
-    s+= "}"
+    s += "}"
     return s
+
+def make_net(data: Mapping[str, str], filename: str, ext: str="png"):
+    relationships = make_links(data)
+    final_graph = make_graph(relationships)
+    make_image(final_graph, ext, filename)
