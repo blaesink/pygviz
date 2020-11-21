@@ -2,6 +2,9 @@ from typing import List, Mapping
 from pygviz.utils import make_image
 
 
+# A Flow is a directional graph (digraph) that connects (sequentially)
+# A -> [B, C], B -> [D, E]...
+
 def make_relationships(data: dict) -> List[str]:
     rels = []
     for k in data.keys():
@@ -9,7 +12,7 @@ def make_relationships(data: dict) -> List[str]:
             rels.append(f"{k} -> {v}")
     return rels
 
-def graph(data: List[str]):
+def make_graph(data: List[str]):
     s = "digraph{\n"
     for l in data:
         s += l + "\n"

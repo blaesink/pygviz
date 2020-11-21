@@ -1,4 +1,5 @@
 from typing import Mapping, List
+from pygviz.utils import make_image
 
 # A speednet is a faster way to link everything together
 # than typing out everything.
@@ -33,3 +34,8 @@ def make_graph(data: List[str]) -> str:
         s += (l + "\n")
     s += "}"
     return s
+
+def make_speednet(data: Mapping[str, str], filename: str, ext:str="ext"):
+    rels = make_relationships(data)
+    final_graph = make_graph(rels)
+    make_image(final_graph, ext, filename)

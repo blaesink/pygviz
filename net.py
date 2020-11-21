@@ -1,6 +1,7 @@
 from typing import List, Mapping
 from pygviz.utils import make_image
 
+# Nets connect things bidirectionally (two way street between them)
 
 def make_links(data: Mapping[str, str]) -> List[str]:
     res = []
