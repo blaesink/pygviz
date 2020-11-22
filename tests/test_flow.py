@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from pygviz.flow import graph, make_relationships
+from pygviz.flow import make_graph, make_relationships
 import pytest
 
 
@@ -23,4 +23,4 @@ def test_func_graph():
     ]
     expected = "digraph{\nTom -> Mathilda\nTom -> Ryan\nMathilda -> Gregory\n}"
 
-    assert graph(data) == expected
+    assert make_graph(data) == expected
